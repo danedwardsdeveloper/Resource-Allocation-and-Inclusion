@@ -1,0 +1,131 @@
+* {
+  font-size: 16px;
+}
+
+body {
+  max-width: 50%;
+  margin: 1rem auto;
+  padding: 2rem;
+  border: 2px solid darkgray;
+  border-radius: 0.4rem;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    max-width: 90%;
+    margin: 1rem auto;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+button {
+  margin: 0.5rem 1rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: black 4px 4px 0 0;
+  color: whitesmoke;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:active:not(:disabled) {
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  button {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+.button--blue {
+  background-color: #004aad; /* Normal shade */
+}
+
+.button--blue:hover,
+.button--blue:active {
+  background-color: #0067f0; /* 20% lighter */
+}
+
+.button--green {
+  background-color: #007a29;
+}
+
+.button--green:hover,
+.button--green:active {
+  background-color: #00c843;
+}
+
+.button--red {
+  background-color: #f44336;
+  color: black;
+}
+
+.button--red:hover,
+.button--red:active {
+  background-color: #f6695e;
+}
+
+button:disabled {
+  filter: grayscale(90%);
+  opacity: 50%;
+  cursor: default;
+}
+
+.neutral {
+  background-color: #e6ebf8;
+}
+
+.success {
+  background-color: #d3ffd0;
+}
+
+.warning {
+  background-color: #fff7cc;
+}
+
+.danger {
+  background-color: #ffc0cb;
+}
+
+.question {
+  text-align: center;
+  font-size: large;
+  padding: 20px;
+  border: 2px solid #777;
+  border-radius: 0.2em;
+  margin-top: 1rem;
+  height: 0;
+  overflow: hidden;
+  transition: height 1s ease-in-out;
+}
+
+.options {
+  margin-bottom: 2rem;
+}
+
+.question.active {
+  height: auto;
+}
+
+/*
+Normal button: background and box shadow: #422800
+Hover: #fff
+Active: #422800
+*/
