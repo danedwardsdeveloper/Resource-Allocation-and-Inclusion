@@ -147,8 +147,9 @@ function displayQuestion(questionId) {
       button.textContent = optionKey;
       button.dataset.next = options[optionKey];
       button.addEventListener("click", handleOptionClick);
+      button.addEventListener("touchstart", handleOptionClick);
 
-      // Add classes based on text content
+      // Add colour classes based on text content
       const lowercaseOption = optionKey.toLowerCase();
       if (lowercaseOption.includes("yes") || lowercaseOption.includes("more")) {
         button.classList.add("button--green");
@@ -169,12 +170,19 @@ function handleOptionClick(event) {
   const nextQuestionId = event.target.dataset.next;
   const optionsContainer = event.target.parentNode;
 
-  // Find the button that wasn't clicked
-  const buttonNotClicked = optionsContainer.querySelector(`button:not([data-next="${nextQuestionId}"])`);
+  // Disable both buttons
+  optionsContainer.querySelectorAll("button").forEach((button) => {
+    button.disabled = true;
+  });
 
-  buttonNotClicked.disabled = true;
+  // Add the class to the clicked button
+  event.target.classList.add("choice-history");
 
   displayQuestion(nextQuestionId);
+
+  window.scrollTo({
+    top: document.body.scrollHeight + 200,
+  });
 }
 
 const startOverButton = document.getElementById("startOverButton");

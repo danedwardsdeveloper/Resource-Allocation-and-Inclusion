@@ -1,26 +1,43 @@
 * {
   font-size: 16px;
+  scroll-behavior: smooth;
+  /* box-sizing: content-box; */
 }
 
 body {
-  max-width: 50%;
-  margin: 1rem auto;
+  width: 100vw;
+  margin: 0 0;
+}
+
+main {
+  width: 50%;
+  margin: 1rem auto 10rem auto;
   padding: 2rem;
   border: 2px solid darkgray;
   border-radius: 0.4rem;
+  background-color: #f7f7f6;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@media only screen and (min-width: 600px) {
-  body {
-    max-width: 90%;
-    margin: 1rem auto;
+@media (max-width: 575.98px) {
+  main {
+    width: 75%;
+    margin: 0.5rem 10rem 0.5rem 0.5rem;
+    /* background-color: red; */
   }
 }
 
 h1 {
   font-size: 2rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  button {
+    min-width: 120px;
+    padding: 0 25px;
+  }
 }
 
 button {
@@ -41,51 +58,58 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 button:active:not(:disabled) {
   transform: translate(2px, 2px);
 }
 
-@media (min-width: 768px) {
-  button {
-    min-width: 120px;
-    padding: 0 25px;
-  }
-}
+/*
+button
+Hover
+Focus
+Active
+Disabled
+*/
 
 .button--blue {
-  background-color: #004aad; /* Normal shade */
+  background-color: #004aad; /* Base shade */
 }
 
-.button--blue:hover,
-.button--blue:active {
-  background-color: #0067f0; /* 20% lighter */
+.button--blue:not(.button--blue:disabled):hover,
+.button--blue:not(.button--blue:disabled):active {
+  background-color: #0058cf; /* 10% lighter */
 }
 
 .button--green {
-  background-color: #007a29;
+  background-color: #00b43d; /* Base shade */
 }
 
-.button--green:hover,
-.button--green:active {
-  background-color: #00c843;
+.button--green:not(.button--green:disabled):hover,
+.button--green:not(.button--green:disabled):active {
+  background-color: #00c443; /* 5% lighter */
 }
 
 .button--red {
-  background-color: #f44336;
+  background-color: #f44336; /* Base shade */
   color: black;
 }
 
-.button--red:hover,
-.button--red:active {
-  background-color: #f6695e;
+.button--red:not(.button--red:disabled):hover,
+.button--red:not(.button--red:disabled):active {
+  background-color: #f5564a; /* 10% lighter */
 }
 
 button:disabled {
-  filter: grayscale(90%);
-  opacity: 50%;
-  cursor: default;
+  filter: grayscale(40%);
+  opacity: 70%;
+  cursor: not-allowed;
+}
+
+button.choice-history {
+  filter: grayscale(10%);
+  opacity: 90%;
 }
 
 .neutral {
@@ -105,8 +129,11 @@ button:disabled {
 }
 
 .question {
+  max-width: 100%;
+  margin: auto auto;
   text-align: center;
   font-size: large;
+  line-height: 1.5;
   padding: 20px;
   border: 2px solid #777;
   border-radius: 0.2em;
@@ -114,6 +141,10 @@ button:disabled {
   height: 0;
   overflow: hidden;
   transition: height 1s ease-in-out;
+}
+
+strong {
+  font-weight: 800;
 }
 
 .options {
